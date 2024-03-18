@@ -50,8 +50,15 @@ class Interactable(Displayable):
             Return     : (function) callback function for the listener
         '''
         def whenDrag(rel : tuple, mousePos : tuple):
-            if self.__isDrag and self.isOnInteractable(mousePos):
-                self.onDrag(rel, mousePos)
+            if not self.isActive():
+                return 
+            if self.__isDrag:
+                if self.isOnInteractable(mousePos):
+                        self.onDrag(rel, mousePos)
+                else:
+                    self.onLeftRelease(mousePos)
+                    self.onRightRelease(mousePos)
+                    self.__isDrag = False
         return whenDrag 
     
 

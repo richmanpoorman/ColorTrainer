@@ -6,7 +6,7 @@ from UserInput import UserInput
 from Interactable import Interactable
 
 class HSVColorPicker(Interactable):
-    DEFINITION = 256
+    DEFINITION = 128
     CIRCLE_RADIUS = 5
     CIRCLE_THICKNESS = 2
 
